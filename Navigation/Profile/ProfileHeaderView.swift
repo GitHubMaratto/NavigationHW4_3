@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class ProfileHeaderView: UIView {
-    
     //цветной вью задник
     let colorView: UIView = {
         let view = UIView()
@@ -27,21 +26,21 @@ class ProfileHeaderView: UIView {
     }()
     //Лейбл текст
     let labelText: UILabel = {
-        let label = UILabel()
-        label.text = "Meow White"
-        label.font =  UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .black
+        let labelTextBlack = UILabel()
+        labelTextBlack.text = "Meow White"
+        labelTextBlack.font =  UIFont.systemFont(ofSize: 18, weight: .bold)
+        labelTextBlack.textColor = .black
         
-        return label
+        return labelTextBlack
     }()
     //Текст филд для ввода
-    var textFieldStatus: UITextField = {
-        var textField = UITextField()
-        textField.placeholder = "Waiting for something..."
-        textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        textField.textColor = .gray
+    var labelStatus: UILabel = {
+        var labelStatusGray = UILabel()
+        labelStatusGray.text = "Waiting for something..."
+        labelStatusGray.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        labelStatusGray.textColor = .gray
         
-        return textField
+        return labelStatusGray
     }()
     //Кнопка синяя
     let button: UIButton = {
@@ -49,13 +48,11 @@ class ProfileHeaderView: UIView {
         buttonBlue.backgroundColor = .blue
         buttonBlue.setTitle("Show status", for: .normal)
         buttonBlue.setTitleColor(.white, for: .normal)
-        
         return buttonBlue
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         //Задаю фрейм для colorView
         colorView.frame = CGRect(x: 0, y: 80, width: ProfileViewController().view.frame.size.width, height: ProfileViewController().view.frame.size.height)
         
@@ -70,7 +67,7 @@ class ProfileHeaderView: UIView {
         labelText.frame = CGRect(x: 190, y: 107, width: 170, height: 30)
         
         //Задаю фрейм для textFieldCreate
-        textFieldStatus.frame = CGRect(x: 190, y: 157, width: 170, height: 30)
+        labelStatus.frame = CGRect(x: 190, y: 157, width: 170, height: 30)
         
         //Создаю фрейм для button
         button.frame = CGRect(x: 16, y: 264, width: ProfileViewController().view.frame.size.width - 32, height: 50)
@@ -80,6 +77,12 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOpacity = Float(0.7)
         button.layer.cornerRadius = 4
     }
-
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

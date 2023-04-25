@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileHeaderView.colorView)
         view.addSubview(profileHeaderView.imageView)
         view.addSubview(profileHeaderView.labelText)
-        view.addSubview(profileHeaderView.textFieldStatus)
+        view.addSubview(profileHeaderView.labelStatus)
         view.addSubview(profileHeaderView.button)
         
         profileHeaderView.button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
     }
    
     @objc func buttonPressed() {
-        let textToPrint = profileHeaderView.textFieldStatus.text
+        let textToPrint = profileHeaderView.labelStatus.text
         print("\(String(describing: textToPrint))")
     }
     /*
